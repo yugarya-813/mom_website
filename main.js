@@ -213,13 +213,25 @@ window.addEventListener('touchend', e => {
 });
 
 // ─── Modal helpers ────────────────────────────────────────
+const modalContent = document.getElementById('modal-content');
+
 function openModal(src) {
+    if (modal.classList.contains('closing')) return;
     modalImg.src = src;
     modal.classList.remove('hidden');
+    // Force animation restart after re-show
+    modalContent.style.animation = 'none';
+    modalContent.offsetHeight; // reflow
+    modalContent.style.animation = '';
 }
 function closeModal() {
-    modal.classList.add('hidden');
-    modalImg.src = '';
+    if (modal.classList.contains('hidden') || modal.classList.contains('closing')) return;
+    modal.classList.add('closing');
+    modalContent.addEventListener('animationend', () => {
+        modal.classList.add('hidden');
+        modal.classList.remove('closing');
+        modalImg.src = '';
+    }, { once: true });
 }
 modalBg.addEventListener('click',  closeModal);
 closeBtn.addEventListener('click', closeModal);

@@ -115,15 +115,37 @@ body {
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     cursor: pointer;
+    animation: fade-in 0.35s ease forwards;
 }
+#modal.closing #modal-bg {
+    animation: fade-out 0.28s ease forwards;
+}
+
 #modal-content {
     position: relative;
     z-index: 51;
-    animation: pop-in 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    animation: pop-in 0.48s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+#modal.closing #modal-content {
+    animation: pop-out 0.3s cubic-bezier(0.55, 0, 0.7, 0.8) forwards;
+}
+
+@keyframes fade-in {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+@keyframes fade-out {
+    from { opacity: 1; }
+    to   { opacity: 0; }
 }
 @keyframes pop-in {
-    from { transform: scale(0.75); opacity: 0; }
-    to   { transform: scale(1);    opacity: 1; }
+    0%   { transform: scale(0.3) translateY(40px); opacity: 0; filter: blur(10px); }
+    60%  { transform: scale(1.06) translateY(-4px); opacity: 1; filter: blur(0); }
+    100% { transform: scale(1)   translateY(0);    opacity: 1; filter: blur(0); }
+}
+@keyframes pop-out {
+    0%   { transform: scale(1)   translateY(0);    opacity: 1; filter: blur(0); }
+    100% { transform: scale(0.3) translateY(40px); opacity: 0; filter: blur(8px); }
 }
 #modal-img {
     display: block;
