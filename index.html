@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Mother's Day</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Loading screen -->
+    <div id="loading">
+        <div class="loader-inner">
+            <div class="spinner"></div>
+            <p>Loading memories&hellip;</p>
+        </div>
+    </div>
+
+    <!-- Header overlay -->
+    <div id="header">
+        <h1 class="title">Happy Mother's Day</h1>
+        <p class="subtitle">With love, always &amp; forever</p>
+        <p class="hint">Drag to explore &nbsp;&bull;&nbsp; Click a photo to view</p>
+    </div>
+
+    <!-- Photo modal -->
+    <div id="modal" class="hidden">
+        <div id="modal-bg"></div>
+        <div id="modal-content">
+            <img id="modal-img" src="" alt="Family memory">
+            <button id="close-btn" aria-label="Close">&#10005;</button>
+        </div>
+    </div>
+
+    <canvas id="canvas"></canvas>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
