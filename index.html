@@ -10,29 +10,42 @@
 </head>
 <body>
 
+    <!-- Custom cursor -->
+    <div class="cursor-dot"></div>
+    <div class="cursor-ring"></div>
+
     <!-- Loading screen -->
     <div id="loading">
         <div class="loader-inner">
-            <div class="spinner"></div>
-            <p>Loading memories&hellip;</p>
+            <div class="loader-hearts">
+                <span>❤</span><span>❤</span><span>❤</span>
+            </div>
+            <p class="loader-text">Loading memories<span class="dots"></span></p>
         </div>
     </div>
 
-    <!-- Header overlay -->
+    <!-- Header -->
     <div id="header">
-        <h1 class="title">Happy Mother's Day</h1>
+        <h1 class="title" id="main-title">Happy Mother's Day</h1>
         <p class="subtitle">With love, always &amp; forever</p>
         <p class="hint">Drag to explore &nbsp;&bull;&nbsp; Click a photo to view</p>
+        <p class="easter-hint" id="easter-hint"></p>
     </div>
+
+    <!-- Tooltip -->
+    <div id="tooltip"></div>
 
     <!-- Photo modal -->
     <div id="modal" class="hidden">
         <div id="modal-bg"></div>
         <div id="modal-content">
-            <img id="modal-img" src="" alt="Family memory">
+            <img id="modal-img" src="" alt="Family memory" draggable="false">
             <button id="close-btn" aria-label="Close">&#10005;</button>
         </div>
     </div>
+
+    <!-- Burst / confetti container -->
+    <div id="burst-container"></div>
 
     <canvas id="canvas"></canvas>
 
