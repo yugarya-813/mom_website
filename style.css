@@ -109,12 +109,15 @@ body {
     font-size: clamp(2rem, 5.5vw, 4.2rem);
     font-weight: 700;
     letter-spacing: 0.06em;
-    background: linear-gradient(135deg, #fff 20%, #ffb3cb 60%, #ffd700 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: #fff;
+    text-shadow: 0 0 22px rgba(255,120,160,0.9), 0 0 55px rgba(255,60,120,0.45);
     display: inline-block;
     pointer-events: auto;
+    animation: shimmer 3.5s ease-in-out infinite alternate;
+}
+@keyframes shimmer {
+    from { text-shadow: 0 0 22px rgba(255,120,160,0.85), 0 0 55px rgba(255,60,120,0.4); }
+    to   { text-shadow: 0 0 38px rgba(255,190,210,1), 0 0 85px rgba(255,130,165,0.65), 0 0 130px rgba(255,80,140,0.3); }
 }
 .title-letter {
     display: inline-block;
